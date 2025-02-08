@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linuxix</title>
+<script defer src="bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>
+<script>
+async function runProcess(){
+const res=await fetch("/run",{method:"POST"})
+const data=await res.json()
+document.getElementById("output").innerText+=`\n${data.message}`
+}
+</script>
+<div>
+<button onclick="runProcess()">Run Process</button>
+<pre id="output"></pre>
+</div>
